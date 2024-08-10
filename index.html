@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Survey form</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header>
+        <div id="header">
+          <h1 id="title">U-Tech Suvery Form</h1>
+          <p id="description">Get to know your job in the U-Tech industry!</p>
+        </div>
+      </header>
+      
+      <form id="survery-form" onsubmit="return validateForm();">
+      <div class="text-input">
+        <label for="name">Name</label>
+        <input type="text" id="name-label" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email-label" name="email" placeholder="Enter your email" required>
+
+        <label for="age">Age</label>
+        <input type="number" id="age-label" name="age" min="0" max="150" placeholder="Enter your age" required>
+      
+        <label for="jobs">What kind of U-Tech job for you?</label>
+        <select name="jobs" id="selection" required>
+          <option value="Network Engineer">Network Engineer</option>
+          <option value="Computer Programmer">Computer Programmer</option>
+          <option value="Data Scientist">Data Scientist</option>
+          <option value="Soft Developer">Software Developer</option>
+          <option value="Information Security Analyst ">Information Security Analyst</option>
+          <option value="Web Developer">Web Developer</option>
+          <option value="Network and Systems Administrator">Network and Systems Administrator</option>
+          <option value="Mobile Developer">Mobile Developer</option>
+        </select>
+
+        <div class="text-input">
+          <label for="degress">How would you achieve your future job?</label>
+          <input type="radio" name="user" value="self-taught" class="user-radio">Self Taught</input>
+          <br>
+          <input type="radio" name="user" value="bootcamp" class="user-radio">Bootcamp</input>
+          <br>
+          <input type="radio" name="user" value="bachelor-degree" class="user-radio">Bachelor Degree</input>
+          <br>
+          <input type="radio" name="user" value="master-degree" class="user-radio">Bachelor Degree & master's degrees</input>
+          <br>
+          <input type="radio" name="user" value="doctoral-degree" class="user-radio">Bachelor Degree & doctoral degrees</input>
+        </div>
+
+        <div class="text-input">
+          <label for="preference">What are the characteristics of your U-Tech job?</label>
+          <input type="checkbox" name="preference" value="good-salary" class="prefer-checkbox">Good Salary</input>
+          <br>
+          <input type="checkbox" name="preference" value="cozy-workplace" class="prefer-checkbox">Cozy Workplace</input>
+          <br>
+          <input type="checkbox" name="preference" value="Lots-of-Benefits" class="prefer-checkbox">Lots of Benefits</input>
+          <br>
+          <input type="checkbox" name="preference" value="Kind-Coutech" class="prefer-checkbox" >Kind Workmate</input>
+        </div>
+
+        <div class="text-input">
+          <label for="feedback">Do have any feedback on us?</label>
+          <textarea name="feedback" id="feedback" placeholder="Leave us a feedback" maxlength="1000"></textarea>
+        </div>
+        
+        <button type="submit" name="submit" id="submit">Submit</button>
+      </form>
+      </div>
+    </div>
+  
+  <script type="text/javascript">
+  function validateForm() {
+  // Get all radio buttons and checkboxes
+  const radioButtons = document.querySelectorAll('input[type="radio"]');
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+  // Check if at least one radio button is selected
+  let radioSelected = false;
+  for (const radioButton of radioButtons) {
+    if (radioButton.checked) {
+      radioSelected = true;
+      break;
+    }
+  }
+
+  // Check if at least one checkbox is selected
+  let checkboxSelected = false;
+  for (const checkbox of checkboxes) {
+    if (checkbox.checked) {
+      checkboxSelected = true;
+      break;
+    }
+  }
+
+  // Prevent submission if no radio button or checkbox is selected
+  if (!radioSelected && !checkboxSelected) {
+    alert("Please select at least one radio button or checkbox.");
+    return false;
+  }
+
+  return true;
+}
+
+  </script>
+  </body>
+</html>
